@@ -19,8 +19,7 @@ public class Launcher extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        // Jesli uzywamy Mavena to pliki jak fxml czy zdjecia dajemy do odpowiednich folderow w resources, bo getClass() zwraca classpath do skompilowanego pliku ktory jest przeciez w target, a folder resources jest chyba wlasnie po to zeby tam dodawac takie pliki, bo tutaj to dziala
-        Parent root = FXMLLoader.load(getClass().getResource("view/first.fxml"));
+        StackPane root = new StackPane();
 
         Scene scene = new Scene(root, 300, 250);
         primaryStage.setScene(scene);
