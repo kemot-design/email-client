@@ -1,17 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e1eb0be7-031e-4186-980e-a0991aef82b9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/kemot/App.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/kemot/PrimaryController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/kemot/SecondaryController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/pl/kemot/primary.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/pl/kemot/secondary.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/kemot/PrimaryController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/kemot/SecondaryController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/kemot/primary.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/kemot/secondary.fxml" beforeDir="false" />
+    <list default="true" id="e1eb0be7-031e-4186-980e-a0991aef82b9" name="Default Changelist" comment="First JavaFx program">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/kemot/Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/kemot/Launcher.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +15,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="module-info" />
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
@@ -51,10 +45,32 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="pl.kemot" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\2.Nauka\1.Programowanie\Przyszly_Programista\wyzwania\email-client\src\main\resources\pl\kemot\view" />
+    </key>
   </component>
   <component name="RunManager" selected="Application.Launcher">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="pl.kemot.App" />
+      <module name="email-client" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pl.kemot.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="First" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="pl.kemot.view.First" />
       <module name="email-client" />
       <extension name="coverage">
         <pattern>
@@ -79,9 +95,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="pl.kemot.Test" />
+      <module name="email-client" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pl.kemot.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Launcher" />
+        <item itemvalue="Application.Test" />
+        <item itemvalue="Application.First" />
         <item itemvalue="Application.App" />
       </list>
     </recent_temporary>
@@ -99,15 +130,19 @@
     </task>
     <servers />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="First JavaFx program" />
+    <option name="LAST_COMMIT_MESSAGE" value="First JavaFx program" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="488" y="72" key="#com.intellij.ide.util.MemberChooser" timestamp="1627757715277">
+    <state x="488" y="72" key="#com.intellij.ide.util.MemberChooser" timestamp="1627802920815">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="488" y="72" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728/1366.0.1920.1160@0.0.1366.728" timestamp="1627757715277" />
-    <state x="479" y="247" width="407" height="242" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1627757004889">
+    <state x="488" y="72" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728/1366.0.1920.1160@0.0.1366.728" timestamp="1627802920815" />
+    <state x="479" y="247" width="407" height="242" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1627805707416">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="479" y="247" width="407" height="242" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1366.728/1366.0.1920.1160@0.0.1366.728" timestamp="1627757004889" />
+    <state x="479" y="247" width="407" height="242" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1366.728/1366.0.1920.1160@0.0.1366.728" timestamp="1627805707416" />
     <state x="413" y="109" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1627757641883">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -116,21 +151,29 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="261" y="0" width="871" height="728" key="CommitChangelistDialog2/0.0.1366.728/1366.0.1920.1160@0.0.1366.728" timestamp="1627758087352" />
-    <state width="1322" height="174" key="GridCell.Tab.0.bottom" timestamp="1627758006553">
+    <state width="1322" height="181" key="GridCell.Tab.0.bottom" timestamp="1627806736868">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1322" height="174" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1920.1160@0.0.1366.728" timestamp="1627758006553" />
-    <state width="1322" height="174" key="GridCell.Tab.0.center" timestamp="1627758006553">
+    <state width="1322" height="181" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1920.1160@0.0.1366.728" timestamp="1627806736868" />
+    <state width="1322" height="181" key="GridCell.Tab.0.center" timestamp="1627806736868">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1322" height="174" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1920.1160@0.0.1366.728" timestamp="1627758006553" />
-    <state width="1322" height="174" key="GridCell.Tab.0.left" timestamp="1627758006552">
+    <state width="1322" height="181" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1920.1160@0.0.1366.728" timestamp="1627806736868" />
+    <state width="1322" height="181" key="GridCell.Tab.0.left" timestamp="1627806736868">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1322" height="174" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1920.1160@0.0.1366.728" timestamp="1627758006552" />
-    <state width="1322" height="174" key="GridCell.Tab.0.right" timestamp="1627758006553">
+    <state width="1322" height="181" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1920.1160@0.0.1366.728" timestamp="1627806736868" />
+    <state width="1322" height="181" key="GridCell.Tab.0.right" timestamp="1627806736868">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1322" height="174" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1920.1160@0.0.1366.728" timestamp="1627758006553" />
+    <state width="1322" height="181" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1920.1160@0.0.1366.728" timestamp="1627806736868" />
+    <state x="378" y="186" key="com.intellij.ide.util.TipDialog" timestamp="1627801229779">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="378" y="186" key="com.intellij.ide.util.TipDialog/0.0.1366.728/1366.0.1920.1160@0.0.1366.728" timestamp="1627801229779" />
+    <state width="600" height="424" key="javadoc.popup" timestamp="1627803001348">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="600" height="424" key="javadoc.popup/0.0.1366.728/1366.0.1920.1160@0.0.1366.728" timestamp="1627803001348" />
   </component>
 </project>

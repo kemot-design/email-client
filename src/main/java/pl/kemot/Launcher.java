@@ -3,6 +3,8 @@ package pl.kemot;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
@@ -16,19 +18,11 @@ public class Launcher extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Button btn = new Button("Click me");
-        btn.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                System.out.println("You have just clicked the button!");
-            }
-        });
 
-        StackPane root = new StackPane();
-        root.getChildren().add(btn);
+        // Jesli uzywamy Mavena to pliki jak fxml czy zdjecia dajemy do odpowiednich folderow w resources, bo getClass() zwraca classpath do skompilowanego pliku ktory jest przeciez w target, a folder resources jest chyba wlasnie po to zeby tam dodawac takie pliki, bo tutaj to dziala
+        Parent root = FXMLLoader.load(getClass().getResource("view/first.fxml"));
 
-        Scene scene = new Scene(root, 500, 400);
-
+        Scene scene = new Scene(root, 300, 250);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
