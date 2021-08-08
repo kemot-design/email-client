@@ -18,4 +18,5 @@ public abstract class BaseController {
     public String getFxmlFileName() {
         return fxmlFileName;
     }
+
 }
