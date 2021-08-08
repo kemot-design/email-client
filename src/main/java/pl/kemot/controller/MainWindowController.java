@@ -4,8 +4,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TreeView;
 import javafx.scene.web.WebView;
+import pl.kemot.EmailManager;
+import pl.kemot.view.ViewFactory;
 
-public class MainWindowController {
+public class MainWindowController extends BaseController{
 
     @FXML
     private TreeView<?> emailsTreeView;
@@ -15,6 +17,10 @@ public class MainWindowController {
 
     @FXML
     private WebView emailsWebView;
+
+    public MainWindowController(EmailManager emailManager, ViewFactory viewFactory, String fxmlFileName) {
+        super(emailManager, viewFactory, fxmlFileName);
+    }
 
     @FXML
     void optionsAction() {
