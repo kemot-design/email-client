@@ -18,7 +18,6 @@ public class MainWindowController {
 
     @FXML
     void optionsAction() {
-
     }
 
     @FXML
