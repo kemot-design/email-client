@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="338.0" prefWidth="499.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.kemot.view.OptionsWindow">
+<AnchorPane prefHeight="338.0" prefWidth="499.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Slider fx:id="fontSizePicker" layoutX="158.0" layoutY="103.0" prefHeight="55.0" prefWidth="282.0" />
       <Label layoutX="233.0" layoutY="33.0" text="Options">

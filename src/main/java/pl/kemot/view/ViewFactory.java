@@ -8,6 +8,7 @@ import pl.kemot.EmailManager;
 import pl.kemot.controller.BaseController;
 import pl.kemot.controller.LoginWindowController;
 import pl.kemot.controller.MainWindowController;
+import pl.kemot.controller.OptionsWindowController;
 
 import java.io.IOException;
 
@@ -30,6 +31,13 @@ public class ViewFactory {
         System.out.println("Main Window");
 
         BaseController controller = new MainWindowController(emailManager, this, "MainWindow.fxml");
+        initializeStage(controller);
+    }
+
+    public void showOptionsWindow(){
+        System.out.println("options window");
+
+        BaseController controller = new OptionsWindowController(emailManager, this, "OptionsWindow.fxml");
         initializeStage(controller);
     }
 
