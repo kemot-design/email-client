@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Slider;
+import javafx.stage.Stage;
 import javafx.util.StringConverter;
 import pl.kemot.EmailManager;
 import pl.kemot.view.ColorTheme;
@@ -34,7 +35,8 @@ public class OptionsWindowController extends BaseController implements Initializ
 
     @FXML
     void cancelBtnAcction() {
-        System.out.println(fontSizePicker.getValue());
+        Stage stageToClose = (Stage) themePicker.getScene().getWindow();
+        viewFactory.closeStage(stageToClose);
     }
 
     @Override
