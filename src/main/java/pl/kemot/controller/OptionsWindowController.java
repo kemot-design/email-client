@@ -28,12 +28,13 @@ public class OptionsWindowController extends BaseController implements Initializ
 
     @FXML
     void applyBtnAction() {
-
+        viewFactory.setColorTheme(themePicker.getValue());
+        viewFactory.setFontSize(FontSize.values()[(int)(fontSizePicker.getValue())]);
     }
 
     @FXML
     void cancelBtnAcction() {
-
+        System.out.println(fontSizePicker.getValue());
     }
 
     @Override
