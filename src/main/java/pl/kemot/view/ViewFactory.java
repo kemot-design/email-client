@@ -11,10 +11,13 @@ import pl.kemot.controller.MainWindowController;
 import pl.kemot.controller.OptionsWindowController;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class ViewFactory {
 
     private EmailManager emailManager;
+    private ArrayList<Stage> activeStages;
+
     private ColorTheme colorTheme = ColorTheme.DEFAULT;
     private FontSize fontSize = FontSize.MEDIUM;
 
@@ -36,6 +39,7 @@ public class ViewFactory {
 
     public ViewFactory(EmailManager emailManager) {
         this.emailManager = emailManager;
+        activeStages = new ArrayList<Stage>();
     }
 
     public void showLoginWindow(){
@@ -76,10 +80,24 @@ public class ViewFactory {
         Stage stage = new Stage();
         stage.setScene(scene);
         stage.show();
+        activeStages.add(stage);
     }
 
     public void closeStage(Stage stageToClose){
+        activeStages.remove(stageToClose);
         stageToClose.close();
+    }
+
+    // in JavaFX we apply styles to stages, so we need a list of stages to style em all (all running stages)
+    public void updatesStyles() {
+        for (Stage stage: activeStages) {
+            Scene scene = stage.getScene();
+            scene.getStylesheets().clear(); // we clear active stylesheets on scene
+            // I dont quite know what to ExternalFormat does
+            scene.getStylesheets().add(getClass().getResource(ColorTheme.getCssPath(colorTheme)).toExternalForm());
+            scene.getStylesheets().add(getClass().getResource(FontSize.getCSSPath(fontSize)).toExternalForm());
+
+        }
     }
 
 }
