@@ -95,7 +95,7 @@ public class ViewFactory {
             scene.getStylesheets().clear(); // we clear active stylesheets on scene
             // I dont quite know what to ExternalFormat does
             scene.getStylesheets().add(getClass().getResource(ColorTheme.getCssPath(colorTheme)).toExternalForm());
-            scene.getStylesheets().add(getClass().getResource(FontSize.getCSSPath(fontSize)).toExternalForm());
+            scene.getStylesheets().add(getClass().getResource(FontSize.getCssPath(fontSize)).toExternalForm());
 
         }
     }
