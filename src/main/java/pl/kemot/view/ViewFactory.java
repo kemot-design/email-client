@@ -79,6 +79,9 @@ public class ViewFactory {
         Scene scene = new Scene(parent);
         Stage stage = new Stage();
         stage.setScene(scene);
+
+        updateSceneStyle(scene);
+
         stage.show();
         activeStages.add(stage);
     }
@@ -93,11 +96,17 @@ public class ViewFactory {
         for (Stage stage: activeStages) {
             Scene scene = stage.getScene();
             scene.getStylesheets().clear(); // we clear active stylesheets on scene
-            // I dont quite know what to ExternalFormat does
+            // toExternalForm convert URL to String value
             scene.getStylesheets().add(getClass().getResource(ColorTheme.getCssPath(colorTheme)).toExternalForm());
             scene.getStylesheets().add(getClass().getResource(FontSize.getCssPath(fontSize)).toExternalForm());
 
         }
+    }
+
+    private void updateSceneStyle(Scene scene) {
+        scene.getStylesheets().clear();
+        scene.getStylesheets().add(getClass().getResource(ColorTheme.getCssPath(colorTheme)).toExternalForm());
+        scene.getStylesheets().add(getClass().getResource(FontSize.getCssPath(fontSize)).toExternalForm());
     }
 
 }
