@@ -5,7 +5,7 @@ import pl.kemot.view.ViewFactory;
 
 public abstract class BaseController {
 
-    private EmailManager emailManager;
+    protected EmailManager emailManager;
     protected ViewFactory viewFactory;
     private String fxmlFileName;
 
