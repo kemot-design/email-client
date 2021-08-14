@@ -13,8 +13,6 @@ import pl.kemot.view.ViewFactory;
 
 public class LoginWindowController extends BaseController{
 
-    LoginService loginService;
-
     @FXML
     private Button loginBtn;
 
@@ -33,6 +31,30 @@ public class LoginWindowController extends BaseController{
 
     @FXML
     void loginBtnAction() {
+        if(areFieldsValid()){
+            EmailAccount emailAccount = new EmailAccount(emailAdressField.getText(), passwordField.getText());
+            LoginService loginService = new LoginService(emailAccount, emailManager);
+            EmailLoginResult loginResult = loginService.login();
 
+            if (loginResult == EmailLoginResult.SUCCESS) {
+                viewFactory.showMainWindow();
+                Stage stage = (Stage)emailAdressField.getScene().getWindow();
+                viewFactory.closeStage(stage);
+            } else {
+                System.out.println(loginResult);
+            }
+        }
+    }
+
+    private boolean areFieldsValid() {
+        if(emailAdressField.getText().isEmpty()){
+            errorLabel.setText("Please fill the adress field");
+            return false;
+        } else if(passwordField.getText().isEmpty()){
+            errorLabel.setText("Please fill the password field");
+            return false;
+        } else {
+            return true;
+        }
     }
 }

@@ -33,6 +33,7 @@ public class LoginService {
             store.connect(emailAccount.getProperties().getProperty("incomingHost"), emailAccount.getAdress(), emailAccount.getPassword());
             // when we connect to the store we can put it to our eamilAccount and we will use it to get emails
             emailAccount.setStore(store);
+
         } catch (NoSuchProviderException e) {
             e.printStackTrace();
             return EmailLoginResult.FAILED_BY_NETWORK;
