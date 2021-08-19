@@ -18,8 +18,8 @@ public class ViewFactory {
     private EmailManager emailManager;
     private ArrayList<Stage> activeStages;
 
-    private ColorTheme colorTheme = ColorTheme.DARK;
-    private FontSize fontSize = FontSize.MEDIUM;
+    private ColorTheme colorTheme = ColorTheme.LIGHT;
+    private FontSize fontSize = FontSize.SMALL;
 
     public ColorTheme getColorTheme() {
         return colorTheme;

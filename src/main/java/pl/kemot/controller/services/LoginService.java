@@ -8,6 +8,8 @@ import pl.kemot.model.EmailAccount;
 
 import javax.mail.*;
 
+//We use Service class from javafx.concurrent library to use multithreading in our app
+// the value in the <> is a value type that will be returned in task method
 public class LoginService extends Service<EmailLoginResult> {
 
     EmailAccount emailAccount;
@@ -37,6 +39,7 @@ public class LoginService extends Service<EmailLoginResult> {
             store.connect(emailAccount.getProperties().getProperty("incomingHost"), emailAccount.getAdress(), emailAccount.getPassword());
             // when we connect to the store we can put it to our eamilAccount and we will use it to get emails
             emailAccount.setStore(store);
+            emailManager.addEmailAccount(emailAccount);
 
         } catch (NoSuchProviderException e) {
             e.printStackTrace();
