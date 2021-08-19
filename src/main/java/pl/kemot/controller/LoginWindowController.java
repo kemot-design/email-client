@@ -52,7 +52,9 @@ public class LoginWindowController extends BaseController implements Initializab
 
                     switch(loginResult) {
                         case SUCCESS:
-                            viewFactory.showMainWindow();
+                            if(!viewFactory.isMainViewInitialized()){
+                                viewFactory.showMainWindow();
+                            }
                             Stage stage = (Stage)emailAdressField.getScene().getWindow();
                             viewFactory.closeStage(stage);
                         case FAILED_BY_CREDENTIALS:
