@@ -20,6 +20,20 @@
             <artifactId>javafx-fxml</artifactId>
             <version>15.0.1</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.sun.mail/javax.mail -->
+        <dependency>
+            <groupId>com.sun.mail</groupId>
+            <artifactId>javax.mail</artifactId>
+            <version>1.6.2</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/javax.activation/activation -->
+        <!-- The JavaBeans(TM) Activation Framework is used by the JavaMail(TM) API to manage MIME data -->
+        <dependency>
+            <groupId>javax.activation</groupId>
+            <artifactId>activation</artifactId>
+            <version>1.1.1</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
