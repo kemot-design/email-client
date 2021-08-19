@@ -1,6 +1,7 @@
 package pl.kemot;
 
 import javafx.scene.control.TreeItem;
+import pl.kemot.controller.services.FetchFoldersService;
 import pl.kemot.model.EmailAccount;
 import pl.kemot.model.EmailTreeItem;
 
@@ -20,20 +21,9 @@ public class EmailManager {
     public void addEmailAccount(EmailAccount emailAccount){
         EmailTreeItem<String> emailTreeItem = new EmailTreeItem<>(emailAccount.getAdress());
         emailTreeItem.setExpanded(true);
-            emailTreeItem.getChildren().add(new EmailTreeItem<String>("INBOX"));
-            emailTreeItem.getChildren().add(new EmailTreeItem<String>("Sent"));
-            emailTreeItem.getChildren().add(new EmailTreeItem<String>("Inportant"));
-            emailTreeItem.getChildren().add(new EmailTreeItem<String>("Spam"));
+        FetchFoldersService fetchFoldersService = new FetchFoldersService(emailAccount.getStore(), emailTreeItem);
+        fetchFoldersService.start();
         foldersRoot.getChildren().add(emailTreeItem);
     }
 
-    public void showEmailsFolders(EmailAccount emailAccount) throws MessagingException {
-        Store store = emailAccount.getStore();
-        System.out.println("Stor: " + store);
-
-        Folder[] folders = store.getDefaultFolder().list();
-        for (Folder folder : folders) {
-            System.out.println(">> " + folder.getName());
-        }
-    }
 }

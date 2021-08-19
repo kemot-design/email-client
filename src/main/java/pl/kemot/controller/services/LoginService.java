@@ -40,7 +40,6 @@ public class LoginService extends Service<EmailLoginResult> {
             // when we connect to the store we can put it to our eamilAccount and we will use it to get emails
             emailAccount.setStore(store);
             emailManager.addEmailAccount(emailAccount);
-            emailManager.showEmailsFolders(emailAccount);
 
         } catch (NoSuchProviderException e) {
             e.printStackTrace();
