@@ -35,5 +35,9 @@ public class FetchFoldersService extends Service<Void> {
     }
 
     private void handleFolders(Folder[] folders, EmailTreeItem<String> foldersRoot) {
+        for (Folder folder : folders){
+            EmailTreeItem<String> emailTreeItem = new EmailTreeItem<>(folder.getName());
+            foldersRoot.getChildren().add(emailTreeItem);
+        }
     }
 }
