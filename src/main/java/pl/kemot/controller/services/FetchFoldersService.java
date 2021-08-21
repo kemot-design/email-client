@@ -56,6 +56,7 @@ public class FetchFoldersService extends Service<Void> {
                     @Override
                     protected Object call() throws Exception {
                         if(folder.getType() != Folder.HOLDS_FOLDERS){
+                            //we have to open folder first
                             folder.open(Folder.READ_WRITE);
                             int messageCount = folder.getMessageCount();
                             for(int i = messageCount ; i > 0 ; i--){
