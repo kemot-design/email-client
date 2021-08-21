@@ -44,10 +44,10 @@ public class MainWindowController extends BaseController implements Initializabl
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        setUpemailsTreeView();
+        setUpEmailsTreeView();
     }
 
-    private void setUpemailsTreeView() {
+    private void setUpEmailsTreeView() {
         TreeItem<String> foldersRoot = emailManager.getFoldersRoot();
         emailsTreeView.setRoot(foldersRoot);
         emailsTreeView.setShowRoot(false);
