@@ -3,13 +3,11 @@ package pl.kemot.controller;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TreeItem;
-import javafx.scene.control.TreeView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.web.WebView;
+import javafx.util.Callback;
 import pl.kemot.EmailManager;
 import pl.kemot.model.EmailMessage;
 import pl.kemot.model.EmailTreeItem;
@@ -72,6 +70,28 @@ public class MainWindowController extends BaseController implements Initializabl
         setUpEmailTableView();
         //In this method we specify which folder is selected to display messages in table view
         setUpFolderSelection();
+        setUpBoldRows();
+    }
+
+    private void setUpBoldRows() {
+        emailsTableView.setRowFactory(new Callback<TableView<EmailMessage>, TableRow<EmailMessage>>() {
+            @Override
+            public TableRow<EmailMessage> call(TableView<EmailMessage> param) {
+                return new TableRow<EmailMessage>(){
+                    @Override
+                    protected void updateItem(EmailMessage item, boolean empty){
+                        super.updateItem(item, empty);
+                        if(item != null){
+                            if(item.isRead()){
+                                setStyle("");
+                            } else {
+                                setStyle("-fx-font-weight: bold");
+                            }
+                        }
+                    }
+                };
+            }
+        });
     }
 
     private void setUpFolderSelection() {
@@ -90,6 +110,7 @@ public class MainWindowController extends BaseController implements Initializabl
 
     private void setUpEmailTableView() {
         //For each table column we need a new cellValueFactory, this is how javaFX works
+        //in the PropertyValueFactory we use main type of object in table view and the specific SimpleXXXProperty type and then name from that class
         senderCol.setCellValueFactory(new PropertyValueFactory<EmailMessage, String>("sender"));
         subjectCol.setCellValueFactory(new PropertyValueFactory<EmailMessage, String>("subject"));
         recipientCol.setCellValueFactory(new PropertyValueFactory<EmailMessage, String>("recipient"));
