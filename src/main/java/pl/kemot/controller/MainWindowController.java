@@ -11,6 +11,7 @@ import javafx.util.Callback;
 import pl.kemot.EmailManager;
 import pl.kemot.model.EmailMessage;
 import pl.kemot.model.EmailTreeItem;
+import pl.kemot.model.SizeInteger;
 import pl.kemot.view.ViewFactory;
 
 import java.net.URL;
@@ -39,7 +40,7 @@ public class MainWindowController extends BaseController implements Initializabl
     private TableColumn<EmailMessage, Date> dateCol;
 
     @FXML
-    private TableColumn<EmailMessage, Integer> sizeCol;
+    private TableColumn<EmailMessage, SizeInteger> sizeCol;
 
     @FXML
     private WebView emailsWebView;
@@ -115,7 +116,7 @@ public class MainWindowController extends BaseController implements Initializabl
         subjectCol.setCellValueFactory(new PropertyValueFactory<EmailMessage, String>("subject"));
         recipientCol.setCellValueFactory(new PropertyValueFactory<EmailMessage, String>("recipient"));
         dateCol.setCellValueFactory(new PropertyValueFactory<EmailMessage, Date>("date"));
-        sizeCol.setCellValueFactory(new PropertyValueFactory<EmailMessage, Integer>("size"));
+        sizeCol.setCellValueFactory(new PropertyValueFactory<EmailMessage, SizeInteger>("size"));
     }
 
     private void setUpEmailsTreeView() {
