@@ -55,4 +55,7 @@ public class EmailTreeItem<String> extends TreeItem<String> {
         }
     }
 
+    public ObservableList<EmailMessage> getEmailMessages() {
+        return emailMessages;
+    }
 }
