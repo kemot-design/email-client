@@ -22,7 +22,7 @@ public class MessageRendererService extends Service {
     public MessageRendererService(WebEngine webEngine) {
         this.webEngine = webEngine;
         stringBuffer = new StringBuffer();
-        //As loading message is a long task we want to display message after everything will be loaded, so we use setOnSucceded method 
+        //As loading message is a long task we want to display message after everything will be loaded, so we use setOnSucceded method
         setOnSucceeded(new EventHandler<WorkerStateEvent>() {
             @Override
             public void handle(WorkerStateEvent event) {

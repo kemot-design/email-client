@@ -9,6 +9,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.web.WebView;
 import javafx.util.Callback;
 import pl.kemot.EmailManager;
+import pl.kemot.controller.services.MessageRendererService;
 import pl.kemot.model.EmailMessage;
 import pl.kemot.model.EmailTreeItem;
 import pl.kemot.model.SizeInteger;
@@ -45,6 +46,8 @@ public class MainWindowController extends BaseController implements Initializabl
     @FXML
     private WebView emailsWebView;
 
+    private MessageRendererService messageRendererService;
+
     public MainWindowController(EmailManager emailManager, ViewFactory viewFactory, String fxmlFileName) {
         super(emailManager, viewFactory, fxmlFileName);
     }
@@ -72,6 +75,25 @@ public class MainWindowController extends BaseController implements Initializabl
         //In this method we specify which folder is selected to display messages in table view
         setUpFolderSelection();
         setUpBoldRows();
+        setUpMessageRendererService();
+        // we indicate which message we clicked to display
+        setUpMessageSelection();
+    }
+
+    private void setUpMessageSelection() {
+        emailsTableView.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                EmailMessage emailMessage = emailsTableView.getSelectionModel().getSelectedItem();
+                messageRendererService.setEmailMessage(emailMessage);
+                // we need to use restart because we will invoke this many times and with start we will be unable to do this - it would produce an error
+                messageRendererService.restart();
+            }
+        });
+    }
+
+    private void setUpMessageRendererService() {
+        messageRendererService = new MessageRendererService(emailsWebView.getEngine());
     }
 
     private void setUpBoldRows() {
