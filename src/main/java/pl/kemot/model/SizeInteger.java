@@ -22,6 +22,7 @@ public class SizeInteger implements Comparable<SizeInteger> {
         }
     }
 
+    // when two values are compare there is compareTo method invoked, of corse you have to implement Comparable interface first
     @Override
     public int compareTo(SizeInteger otherSizeInteger) {
         if(size > otherSizeInteger.size){
