@@ -2,6 +2,8 @@ package pl.kemot.controller.services;
 
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
+import javafx.concurrent.WorkerStateEvent;
+import javafx.event.EventHandler;
 import javafx.scene.web.WebEngine;
 import pl.kemot.model.EmailMessage;
 
@@ -20,6 +22,13 @@ public class MessageRendererService extends Service {
     public MessageRendererService(WebEngine webEngine) {
         this.webEngine = webEngine;
         stringBuffer = new StringBuffer();
+        //As loading message is a long task we want to display message after everything will be loaded, so we use setOnSucceded method 
+        setOnSucceeded(new EventHandler<WorkerStateEvent>() {
+            @Override
+            public void handle(WorkerStateEvent event) {
+                displayMessage();
+            }
+        });
     }
 
     // we will make one instance of RendererService and we will pass different messages to display, so we need a method to set the message
@@ -29,7 +38,13 @@ public class MessageRendererService extends Service {
 
     @Override
     protected Task createTask() {
-        return null;
+        return new Task() {
+            @Override
+            protected Object call() throws Exception {
+                loadMessage();
+                return null;
+            }
+        };
     }
 
     private void loadMessage() throws MessagingException, IOException {
@@ -68,5 +83,10 @@ public class MessageRendererService extends Service {
         } else {
             return false;
         }
+    }
+
+    // we create another method to load message to our webengine and we will invoke this as the loading will be finished so in setOnSucceded method - in the constructor
+    private void displayMessage(){
+        webEngine.loadContent(stringBuffer.toString());
     }
 }
