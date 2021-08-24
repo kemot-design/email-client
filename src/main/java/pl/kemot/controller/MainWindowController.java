@@ -9,6 +9,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.web.WebView;
 import javafx.util.Callback;
 import pl.kemot.EmailManager;
+import pl.kemot.controller.services.FolderUpdaterService;
 import pl.kemot.controller.services.MessageRendererService;
 import pl.kemot.model.EmailMessage;
 import pl.kemot.model.EmailTreeItem;
@@ -78,6 +79,12 @@ public class MainWindowController extends BaseController implements Initializabl
         setUpMessageRendererService();
         // we indicate which message we clicked to display
         setUpMessageSelection();
+        setUpMessageUpdaterService();
+    }
+
+    private void setUpMessageUpdaterService() {
+        FolderUpdaterService folderUpdaterService = new FolderUpdaterService(emailManager.getFolderList());
+        folderUpdaterService.start();
     }
 
     private void setUpMessageSelection() {

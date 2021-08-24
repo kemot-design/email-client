@@ -8,8 +8,16 @@ import pl.kemot.model.EmailTreeItem;
 import javax.mail.Folder;
 import javax.mail.MessagingException;
 import javax.mail.Store;
+import java.util.ArrayList;
+import java.util.List;
 
 public class EmailManager {
+
+    private List<Folder> folderList = new ArrayList<>();
+
+    public List<Folder> getFolderList() {
+        return this.folderList;
+    }
 
     //Folder handling
     private EmailTreeItem<String> foldersRoot = new EmailTreeItem<>("");
@@ -21,7 +29,7 @@ public class EmailManager {
     public void addEmailAccount(EmailAccount emailAccount){
         EmailTreeItem<String> emailTreeItem = new EmailTreeItem<>(emailAccount.getAdress());
         emailTreeItem.setExpanded(true);
-        FetchFoldersService fetchFoldersService = new FetchFoldersService(emailAccount.getStore(), emailTreeItem);
+        FetchFoldersService fetchFoldersService = new FetchFoldersService(emailAccount.getStore(), emailTreeItem, folderList);
         fetchFoldersService.start();
         foldersRoot.getChildren().add(emailTreeItem);
     }
