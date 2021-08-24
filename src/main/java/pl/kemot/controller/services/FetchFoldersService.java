@@ -5,6 +5,7 @@ import javafx.concurrent.Task;
 import pl.kemot.model.EmailTreeItem;
 
 import javax.mail.Folder;
+import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Store;
 import javax.mail.event.MessageCountEvent;
@@ -59,8 +60,15 @@ public class FetchFoldersService extends Service<Void> {
     private void addMessageListenerToFolder(Folder folder, EmailTreeItem<String> emailTreeItem) {
         folder.addMessageCountListener(new MessageCountListener() {
             @Override
-            public void messagesAdded(MessageCountEvent messageCountEvent) {
-                System.out.println("Messaje added");
+            public void messagesAdded(MessageCountEvent event) {
+                for (int i = 0 ; i < event.getMessages().length ; i++){
+                    try {
+                        Message message = folder.getMessage(folder.getMessageCount() - i);
+                        emailTreeItem.addEmailToTop(message);
+                    } catch (MessagingException e) {
+                        e.printStackTrace();
+                    }
+                }
             }
 
             @Override

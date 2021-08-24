@@ -2,6 +2,7 @@ package pl.kemot;
 
 import javafx.scene.control.TreeItem;
 import pl.kemot.controller.services.FetchFoldersService;
+import pl.kemot.controller.services.FolderUpdaterService;
 import pl.kemot.model.EmailAccount;
 import pl.kemot.model.EmailTreeItem;
 
@@ -17,6 +18,14 @@ public class EmailManager {
 
     public List<Folder> getFolderList() {
         return this.folderList;
+    }
+
+
+    private FolderUpdaterService folderUpdaterService;
+
+    public EmailManager(){
+        this.folderUpdaterService = new FolderUpdaterService(folderList);
+        folderUpdaterService.start();
     }
 
     //Folder handling

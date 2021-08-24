@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e1eb0be7-031e-4186-980e-a0991aef82b9" name="Default Changelist" comment="First JavaFx program">
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/kemot/controller/services/FolderUpdaterService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pl/kemot/EmailManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/kemot/EmailManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pl/kemot/controller/MainWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/kemot/controller/MainWindowController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pl/kemot/controller/services/FetchFoldersService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/kemot/controller/services/FetchFoldersService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/kemot/model/EmailTreeItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/kemot/model/EmailTreeItem.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +49,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/pl/kemot/view/first.fxml" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
@@ -172,26 +173,26 @@
     </state>
     <state x="463" y="104" key="FileChooserDialogImpl/0.0.1366.728/1366.0.1920.1160@0.0.1366.728" timestamp="1627846681724" />
     <state x="2017" y="166" key="FileChooserDialogImpl/0.0.1366.728/1366.0.1920.1160@1366.0.1920.1160" timestamp="1629739854068" />
-    <state width="1876" height="249" key="GridCell.Tab.0.bottom" timestamp="1629790991777">
+    <state width="1876" height="249" key="GridCell.Tab.0.bottom" timestamp="1629793310446">
       <screen x="1366" y="0" width="1920" height="1160" />
     </state>
     <state width="1322" height="184" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1920.1160@0.0.1366.728" timestamp="1629015071167" />
-    <state width="1876" height="249" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1920.1160@1366.0.1920.1160" timestamp="1629790991777" />
-    <state width="1876" height="249" key="GridCell.Tab.0.center" timestamp="1629790991777">
+    <state width="1876" height="249" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1920.1160@1366.0.1920.1160" timestamp="1629793310446" />
+    <state width="1876" height="249" key="GridCell.Tab.0.center" timestamp="1629793310446">
       <screen x="1366" y="0" width="1920" height="1160" />
     </state>
     <state width="1322" height="184" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1920.1160@0.0.1366.728" timestamp="1629015071167" />
-    <state width="1876" height="249" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1920.1160@1366.0.1920.1160" timestamp="1629790991777" />
-    <state width="1876" height="249" key="GridCell.Tab.0.left" timestamp="1629790991777">
+    <state width="1876" height="249" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1920.1160@1366.0.1920.1160" timestamp="1629793310446" />
+    <state width="1876" height="249" key="GridCell.Tab.0.left" timestamp="1629793310446">
       <screen x="1366" y="0" width="1920" height="1160" />
     </state>
     <state width="1322" height="184" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1920.1160@0.0.1366.728" timestamp="1629015071167" />
-    <state width="1876" height="249" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1920.1160@1366.0.1920.1160" timestamp="1629790991777" />
-    <state width="1876" height="249" key="GridCell.Tab.0.right" timestamp="1629790991777">
+    <state width="1876" height="249" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1920.1160@1366.0.1920.1160" timestamp="1629793310446" />
+    <state width="1876" height="249" key="GridCell.Tab.0.right" timestamp="1629793310446">
       <screen x="1366" y="0" width="1920" height="1160" />
     </state>
     <state width="1322" height="184" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1920.1160@0.0.1366.728" timestamp="1629015071167" />
-    <state width="1876" height="249" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1920.1160@1366.0.1920.1160" timestamp="1629790991777" />
+    <state width="1876" height="249" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1920.1160@1366.0.1920.1160" timestamp="1629793310446" />
     <state width="1876" height="198" key="GridCell.Tab.1.bottom" timestamp="1629405835733">
       <screen x="1366" y="0" width="1920" height="1160" />
     </state>
@@ -257,13 +258,17 @@
       <screen x="1366" y="0" width="1920" height="1160" />
     </state>
     <state x="1924" y="189" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1366.728/1366.0.1920.1160@1366.0.1920.1160" timestamp="1628882809971" />
+    <state x="2056" y="348" key="extract.method.dialog" timestamp="1629792592923">
+      <screen x="1366" y="0" width="1920" height="1160" />
+    </state>
+    <state x="2056" y="348" key="extract.method.dialog/0.0.1366.728/1366.0.1920.1160@1366.0.1920.1160" timestamp="1629792592923" />
     <state width="1118" height="722" key="javadoc.popup" timestamp="1628975387966">
       <screen x="1366" y="0" width="1920" height="1160" />
     </state>
-    <state width="1057" height="500" key="javadoc.popup.new" timestamp="1629742638270">
+    <state width="1057" height="500" key="javadoc.popup.new" timestamp="1629792240282">
       <screen x="1366" y="0" width="1920" height="1160" />
     </state>
-    <state width="1057" height="500" key="javadoc.popup.new/0.0.1366.728/1366.0.1920.1160@1366.0.1920.1160" timestamp="1629742638270" />
+    <state width="1057" height="500" key="javadoc.popup.new/0.0.1366.728/1366.0.1920.1160@1366.0.1920.1160" timestamp="1629792240282" />
     <state width="600" height="424" key="javadoc.popup/0.0.1366.728/1366.0.1920.1160@0.0.1366.728" timestamp="1627803001348" />
     <state width="1118" height="722" key="javadoc.popup/0.0.1366.728/1366.0.1920.1160@1366.0.1920.1160" timestamp="1628975387966" />
     <state x="1626" y="288" key="new project wizard" timestamp="1629739859205">

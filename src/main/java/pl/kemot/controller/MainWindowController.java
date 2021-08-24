@@ -79,12 +79,6 @@ public class MainWindowController extends BaseController implements Initializabl
         setUpMessageRendererService();
         // we indicate which message we clicked to display
         setUpMessageSelection();
-        setUpMessageUpdaterService();
-    }
-
-    private void setUpMessageUpdaterService() {
-        FolderUpdaterService folderUpdaterService = new FolderUpdaterService(emailManager.getFolderList());
-        folderUpdaterService.start();
     }
 
     private void setUpMessageSelection() {
