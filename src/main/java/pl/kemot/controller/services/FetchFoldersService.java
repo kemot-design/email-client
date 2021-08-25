@@ -61,8 +61,10 @@ public class FetchFoldersService extends Service<Void> {
         folder.addMessageCountListener(new MessageCountListener() {
             @Override
             public void messagesAdded(MessageCountEvent event) {
+                // new messages that was sent after starting of our client will be strored in an array in event, so we have to iterate through them to catch em all
                 for (int i = 0 ; i < event.getMessages().length ; i++){
                     try {
+                        // we get the new messages from folder cuz they are already there but their indexes are the last ones
                         Message message = folder.getMessage(folder.getMessageCount() - i);
                         emailTreeItem.addEmailToTop(message);
                     } catch (MessagingException e) {

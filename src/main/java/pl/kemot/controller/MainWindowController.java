@@ -86,9 +86,15 @@ public class MainWindowController extends BaseController implements Initializabl
             @Override
             public void handle(MouseEvent event) {
                 EmailMessage emailMessage = emailsTableView.getSelectionModel().getSelectedItem();
-                messageRendererService.setEmailMessage(emailMessage);
-                // we need to use restart because we will invoke this many times and with start we will be unable to do this - it would produce an error
-                messageRendererService.restart();
+                if(!emailMessage.equals(null)){
+                    emailManager.setSelectedMessage(emailMessage);
+                    if(!emailMessage.isRead()){
+                        emailManager.setMessageToRead();
+                    }
+                    messageRendererService.setEmailMessage(emailMessage);
+                    // we need to use restart because we will invoke this many times and with start we will be unable to do this - it would produce an error
+                    messageRendererService.restart();
+                }
             }
         });
     }
@@ -125,6 +131,7 @@ public class MainWindowController extends BaseController implements Initializabl
                 EmailTreeItem<String> selectedFolder = (EmailTreeItem<String>) emailsTreeView.getSelectionModel().getSelectedItem();
                 //if we will click below our folders the selected folder will be null
                 if(selectedFolder != null){
+                    emailManager.setSelectedFolder(selectedFolder);
                     //if we have chosen a correct folder we set items in table view with observable list of our messages from EmailTreeItem class
                     emailsTableView.setItems(selectedFolder.getEmailMessages());
                 }
