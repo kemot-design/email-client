@@ -1,5 +1,7 @@
 package pl.kemot;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.control.TreeItem;
 import pl.kemot.controller.services.FetchFoldersService;
 import pl.kemot.controller.services.FolderUpdaterService;
@@ -22,6 +24,8 @@ public class EmailManager {
         return this.folderList;
     }
 
+    private ObservableList<EmailAccount> emailAccounts;
+
     private FolderUpdaterService folderUpdaterService;
 
     private EmailMessage selectedMessage;
@@ -38,6 +42,8 @@ public class EmailManager {
     public EmailManager(){
         this.folderUpdaterService = new FolderUpdaterService(folderList);
         folderUpdaterService.start();
+
+        emailAccounts = FXCollections.observableArrayList();
     }
 
     //Folder handling
@@ -48,6 +54,7 @@ public class EmailManager {
     }
 
     public void addEmailAccount(EmailAccount emailAccount){
+        emailAccounts.add(emailAccount);
         EmailTreeItem<String> emailTreeItem = new EmailTreeItem<>(emailAccount.getAdress());
         emailTreeItem.setExpanded(true);
         // as the arrays and lists as parameters are passed by value this means that the reference to the list is copied and the reference to list is an adress of it, so the copy of an adress still indicates to the same spot in the memory, so when we update the passed list in the method it affects also the original list
@@ -84,5 +91,9 @@ public class EmailManager {
         } catch(Exception e){
             e.printStackTrace();
         }
+    }
+
+    public ObservableList<EmailAccount> getEmailAccounts(){
+        return this.emailAccounts;
     }
 }

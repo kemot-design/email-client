@@ -5,10 +5,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import pl.kemot.EmailManager;
-import pl.kemot.controller.BaseController;
-import pl.kemot.controller.LoginWindowController;
-import pl.kemot.controller.MainWindowController;
-import pl.kemot.controller.OptionsWindowController;
+import pl.kemot.controller.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -19,7 +16,7 @@ public class ViewFactory {
     private ArrayList<Stage> activeStages;
     private boolean mainViewInitialized = false;
 
-    private ColorTheme colorTheme = ColorTheme.LIGHT;
+    private ColorTheme colorTheme = ColorTheme.DEFAULT;
     private FontSize fontSize = FontSize.SMALL;
 
     public ColorTheme getColorTheme() {
@@ -66,6 +63,13 @@ public class ViewFactory {
         System.out.println("options window");
 
         BaseController controller = new OptionsWindowController(emailManager, this, "OptionsWindow.fxml");
+        initializeStage(controller);
+    }
+
+    public void showComposeMessageWindow(){
+        System.out.println("Compose message window");
+
+        BaseController controller = new ComposeMessageWindowController(emailManager, this ,"ComposeMessageWindow.fxml");
         initializeStage(controller);
     }
 
