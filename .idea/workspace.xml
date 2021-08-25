@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e1eb0be7-031e-4186-980e-a0991aef82b9" name="Default Changelist" comment="First JavaFx program">
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/kemot/controller/MessageSendResult.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/kemot/controller/services/EmailMessageSenderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/kemot/controller/ComposeMessageWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/kemot/controller/ComposeMessageWindowController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/kemot/controller/services/EmailMessageSenderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/kemot/controller/services/EmailMessageSenderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/kemot/controller/services/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/kemot/controller/services/LoginService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/kemot/model/EmailAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/kemot/model/EmailAccount.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,11 +146,11 @@
     <option name="LAST_COMMIT_MESSAGE" value="First JavaFx program" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="2230" y="155" key="#com.intellij.ide.util.MemberChooser" timestamp="1629911695466">
+    <state x="2230" y="155" key="#com.intellij.ide.util.MemberChooser" timestamp="1629912691501">
       <screen x="1366" y="0" width="1920" height="1160" />
     </state>
     <state x="488" y="72" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728/1366.0.1920.1160@0.0.1366.728" timestamp="1628538019341" />
-    <state x="2230" y="155" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728/1366.0.1920.1160@1366.0.1920.1160" timestamp="1629911695466" />
+    <state x="2230" y="155" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728/1366.0.1920.1160@1366.0.1920.1160" timestamp="1629912691501" />
     <state x="479" y="247" width="407" height="242" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1627805707416">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -263,10 +264,10 @@
     <state width="1118" height="722" key="javadoc.popup" timestamp="1628975387966">
       <screen x="1366" y="0" width="1920" height="1160" />
     </state>
-    <state width="1057" height="500" key="javadoc.popup.new" timestamp="1629882497853">
+    <state width="1057" height="500" key="javadoc.popup.new" timestamp="1629912855765">
       <screen x="1366" y="0" width="1920" height="1160" />
     </state>
-    <state width="1057" height="500" key="javadoc.popup.new/0.0.1366.728/1366.0.1920.1160@1366.0.1920.1160" timestamp="1629882497853" />
+    <state width="1057" height="500" key="javadoc.popup.new/0.0.1366.728/1366.0.1920.1160@1366.0.1920.1160" timestamp="1629912855765" />
     <state width="600" height="424" key="javadoc.popup/0.0.1366.728/1366.0.1920.1160@0.0.1366.728" timestamp="1627803001348" />
     <state width="1118" height="722" key="javadoc.popup/0.0.1366.728/1366.0.1920.1160@1366.0.1920.1160" timestamp="1628975387966" />
     <state x="1626" y="288" key="new project wizard" timestamp="1629739859205">

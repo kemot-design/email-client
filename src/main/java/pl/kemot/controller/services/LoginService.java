@@ -35,6 +35,8 @@ public class LoginService extends Service<EmailLoginResult> {
             // we use thread sleep to showcase that one thread aplication is not a good idea, beause everything is blocked while sleep is going on
             //Thread.sleep(10000);
             Session session = Session.getInstance(emailAccount.getProperties(), authenticator);
+            //we set the session in emailAccount to use it to send new messages
+            emailAccount.setSession(session);
             Store store = session.getStore("imaps");
             store.connect(emailAccount.getProperties().getProperty("incomingHost"), emailAccount.getAdress(), emailAccount.getPassword());
             // when we connect to the store we can put it to our eamilAccount and we will use it to get emails
