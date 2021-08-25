@@ -16,7 +16,7 @@ public class ViewFactory {
     private ArrayList<Stage> activeStages;
     private boolean mainViewInitialized = false;
 
-    private ColorTheme colorTheme = ColorTheme.LIGHT;
+    private ColorTheme colorTheme = ColorTheme.DEFAULT;
     private FontSize fontSize = FontSize.SMALL;
 
     public ColorTheme getColorTheme() {
