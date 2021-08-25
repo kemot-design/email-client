@@ -59,4 +59,5 @@ public class EmailMessage {
     public Message getMessage(){
         return this.message;
     }
+
 }

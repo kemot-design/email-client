@@ -1,5 +1,6 @@
 package pl.kemot.controller;
 
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -9,6 +10,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.web.WebView;
 import javafx.util.Callback;
 import pl.kemot.EmailManager;
+import pl.kemot.controller.services.FolderUpdaterService;
 import pl.kemot.controller.services.MessageRendererService;
 import pl.kemot.model.EmailMessage;
 import pl.kemot.model.EmailTreeItem;
@@ -20,6 +22,9 @@ import java.util.Date;
 import java.util.ResourceBundle;
 
 public class MainWindowController extends BaseController implements Initializable {
+
+    private MenuItem markUnreadMenuItem = new MenuItem("mark unread");
+    private MenuItem deleteMessageMenuItem = new MenuItem("delete");
 
     @FXML
     private TreeView<String> emailsTreeView;
@@ -78,6 +83,22 @@ public class MainWindowController extends BaseController implements Initializabl
         setUpMessageRendererService();
         // we indicate which message we clicked to display
         setUpMessageSelection();
+        setUpContextMenus();
+    }
+
+    private void setUpContextMenus() {
+        markUnreadMenuItem.setOnAction(e->{
+            emailManager.setMessageToUnread();
+        });
+
+        deleteMessageMenuItem.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                emailManager.deleteSelectedMessage();
+                //we set the web view to blank after deleting message
+                emailsWebView.getEngine().loadContent("");
+            }
+        });
     }
 
     private void setUpMessageSelection() {
@@ -85,9 +106,15 @@ public class MainWindowController extends BaseController implements Initializabl
             @Override
             public void handle(MouseEvent event) {
                 EmailMessage emailMessage = emailsTableView.getSelectionModel().getSelectedItem();
-                messageRendererService.setEmailMessage(emailMessage);
-                // we need to use restart because we will invoke this many times and with start we will be unable to do this - it would produce an error
-                messageRendererService.restart();
+                if(!emailMessage.equals(null)){
+                    emailManager.setSelectedMessage(emailMessage);
+                    if(!emailMessage.isRead()){
+                        emailManager.setMessageToRead();
+                    }
+                    messageRendererService.setEmailMessage(emailMessage);
+                    // we need to use restart because we will invoke this many times and with start we will be unable to do this - it would produce an error
+                    messageRendererService.restart();
+                }
             }
         });
     }
@@ -124,6 +151,7 @@ public class MainWindowController extends BaseController implements Initializabl
                 EmailTreeItem<String> selectedFolder = (EmailTreeItem<String>) emailsTreeView.getSelectionModel().getSelectedItem();
                 //if we will click below our folders the selected folder will be null
                 if(selectedFolder != null){
+                    emailManager.setSelectedFolder(selectedFolder);
                     //if we have chosen a correct folder we set items in table view with observable list of our messages from EmailTreeItem class
                     emailsTableView.setItems(selectedFolder.getEmailMessages());
                 }
@@ -139,6 +167,8 @@ public class MainWindowController extends BaseController implements Initializabl
         recipientCol.setCellValueFactory(new PropertyValueFactory<EmailMessage, String>("recipient"));
         dateCol.setCellValueFactory(new PropertyValueFactory<EmailMessage, Date>("date"));
         sizeCol.setCellValueFactory(new PropertyValueFactory<EmailMessage, SizeInteger>("size"));
+
+        emailsTableView.setContextMenu(new ContextMenu(markUnreadMenuItem,deleteMessageMenuItem));
     }
 
     private void setUpEmailsTreeView() {
