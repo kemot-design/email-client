@@ -1,5 +1,6 @@
 package pl.kemot.controller;
 
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -21,6 +22,9 @@ import java.util.Date;
 import java.util.ResourceBundle;
 
 public class MainWindowController extends BaseController implements Initializable {
+
+    private MenuItem markUnreadMenuItem = new MenuItem("mark unread");
+    private MenuItem deleteMessageMenuItem = new MenuItem("delete");
 
     @FXML
     private TreeView<String> emailsTreeView;
@@ -79,6 +83,22 @@ public class MainWindowController extends BaseController implements Initializabl
         setUpMessageRendererService();
         // we indicate which message we clicked to display
         setUpMessageSelection();
+        setUpContextMenus();
+    }
+
+    private void setUpContextMenus() {
+        markUnreadMenuItem.setOnAction(e->{
+            emailManager.setMessageToUnread();
+        });
+
+        deleteMessageMenuItem.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                emailManager.deleteSelectedMessage();
+                //we set the web view to blank after deleting message
+                emailsWebView.getEngine().loadContent("");
+            }
+        });
     }
 
     private void setUpMessageSelection() {
@@ -147,6 +167,8 @@ public class MainWindowController extends BaseController implements Initializabl
         recipientCol.setCellValueFactory(new PropertyValueFactory<EmailMessage, String>("recipient"));
         dateCol.setCellValueFactory(new PropertyValueFactory<EmailMessage, Date>("date"));
         sizeCol.setCellValueFactory(new PropertyValueFactory<EmailMessage, SizeInteger>("size"));
+
+        emailsTableView.setContextMenu(new ContextMenu(markUnreadMenuItem,deleteMessageMenuItem));
     }
 
     private void setUpEmailsTreeView() {
